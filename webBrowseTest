@@ -9,6 +9,10 @@ import time
 search_parameters = ["Engineering", "Architecture", "Architect", "Manufacturing", "Manufacturer", "Distribution+Center", "Law+Office", "Lawyer", "Catholic+Schools", "Private+Schools", "Public+Schools"]
 maps_address = "https://www.google.com/maps/search/"
 search_urls = []
+scrapable_sites = []
+
+#Variables used for the output CSV file
+def extract_contacts
 
 # Variables for Beautiful Soup
 selectors = {
@@ -28,7 +32,8 @@ def create_web_string():
         search_urls.append(web_string)
 
     # Set up Selenium
-    firefox_service = FirefoxService("#TODO get gecko driver installed")  
+    firefox_service = FirefoxService("C:\\Users\\BrittanyWalker\\Python\\geckodriver.exe")
+    firefox_options.headless = True
     driver = webdriver.Firefox(service=firefox_service)
 
     try:
@@ -44,7 +49,7 @@ def create_web_string():
                 for element in elements:
                     text = element.get('href')
                     scrapable_sites.append(text)
-            print(scrapable_sites)
+        print(scrapable_sites)
     finally:
         driver.quit()
 
